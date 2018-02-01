@@ -1,0 +1,31 @@
+body{
+background-color: skyblue;
+}
+
+
+.canvas1{
+
+    background-color: black;
+}
+
+.start{
+background-color: grey;
+height: 50px;
+width: 100px;
+float: right   
+}
+
+.tekst_boven{
+text-align: center;
+}
+
+.maker{
+    text-align: center; 
+}
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    width: 190px;
+        
+}
