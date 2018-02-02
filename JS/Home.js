@@ -10,8 +10,8 @@ function spawning(){
 var count=0;
 
 count=count+1;
-var randomY = Math.floor((Math.random() * 500) + 1);
-var randomX= Math.floor((Math.random() * 750) + 1);
+var randomY = Math.floor((Math.random() * 450) + 1);
+var randomX= Math.floor((Math.random() * 800) + 1);
 var c = document.getElementById("canvas1");
 var ctx = c.getContext("2d");
 ctx.beginPath();
@@ -150,6 +150,6 @@ function stop(){
 }
 
 function clear(){
-    
+
 }
 
