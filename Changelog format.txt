@@ -1,0 +1,19 @@
+this is the format for all changelogs, the changelog put you in the discription as you make a commitment.
+
+Bugfixes
+-
+-
+-
+-
+-
+changes 
+-
+-
+-
+-
+-
+New additions 
+-
+-
+-
+-

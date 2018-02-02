@@ -1,6 +1,6 @@
 function update(){
     spawning();
-    var inter = Math.floor((Math.random() *0.001) +0);
+    var inter = Math.floor((Math.random() *2000) +0);
     myVar = setTimeout(update,inter);
 
 }
