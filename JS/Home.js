@@ -1,3 +1,11 @@
+function update(){
+    spawning();
+    var inter = Math.floor((Math.random() *0.001) +0);
+    myVar = setTimeout(update,inter);
+
+}
+update();
+
 function spawning(){
 var count=0;
 
@@ -134,7 +142,14 @@ count=count+4;
 document.getElementById("demo").innerHTML = randomX;
 document.getElementById("demo1").innerHTML = randomY;
 document.getElementById("count").innerHTML= count;
-var inter = Math.floor((Math.random() * 2000) +0);
-setTimeout(spawning, inter);
 }
-spawning();
+
+function stop(){
+    clearTimeout(myVar);
+
+}
+
+function clear(){
+    
+}
+

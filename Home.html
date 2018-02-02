@@ -9,8 +9,14 @@ Test dinges van kees
 </head>
 <body>  
     <h1 class="tekst_boven"><b>Dit is een simulatie</b></h1>
-    <button class="start" onclick="spawning()"><b>start</b></button>
- <table>
+<br>
+  <canvas id="canvas1" class="canvas1" width="800" height="450" style="border:1px solid #000000;">
+</canvas> 
+<button class="start" onclick="clear()"><b>reset</b></button>
+<button class="start" onclick="stop()"><b>stop</b></button>
+<button class="start" onclick="update()"><b>start</b></button>
+
+<table>
   <tr>
     <th><b>coordinaten</b></th>
   </tr>
@@ -26,10 +32,7 @@ Test dinges van kees
     <td><b>Aantal cirkels</b></td>
     <td><p id="count"></p></td>
   </tr>
-</table> 
-<br>
-  <canvas id="canvas1" class="canvas1" width="1000" height="500" style="border:1px solid #000000;">
-</canvas>   
+</table>   
 <br>
 <h2 class="maker">Gemaakt door Kees van Opdorp</h2>
 </body>
