@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Roll the dice</title>
+	<meta charset="UTF-8">
+<style>
+
+/*  CSS styling hier */
+
+.wrap {
+	perspective: 800px;
+	perspective-origin: 50% 100px;
+	}
+
+.cube {
+	position: relative;
+	width: 200px;
+	transform-style: preserve-3d;
+	animation: spin 5s infinite linear;
+	
+	margin: 200px auto; /* keeps the cube centered */
+	transform-origin: 100px 100px;
+	animation: spin 1s infinite linear;
+	
+}
+.cube2{
+	position: left;
+	width: 200px;
+	transform-style: preserve-3d;
+	animation: spin 5s infinite linear;
+	
+	margin: 200px auto; /* keeps the cube centered */
+	transform-origin: 100px 100px;
+	animation: spin 1s infinite linear;
+	
+}
+
+
+.cube div {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	box-shadow: inset 0 0 30px rgba(125,125,125,1);
+	font-size: 20px;
+	text-align: center;
+	line-height: 200px;
+	color: rgba(0,0,0,0.5);
+	font-family: sans-serif;
+	text-transform: uppercase;
+}
+
+
+
+
+.back {
+	transform: translateZ(-100px) rotateY(180deg);
+	background: url('Images/6.jpg') no-repeat center;
+}
+.right {
+	transform: rotateY(-270deg) translateX(100px);
+	transform-origin: top right;
+	background: url('Images/3.jpg') no-repeat center;
+}
+.left {
+	transform: rotateY(270deg) translateX(-100px);
+	transform-origin: left center;
+	background: url('Images/4.jpg') no-repeat center;
+}
+.top {
+	transform: rotateX(-90deg) translateY(-100px);
+	transform-origin: top center;
+	background: url('Images/2.jpg') no-repeat center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom center;
+	background: url('Images/5.jpg') no-repeat center;
+}
+.front {
+	transform: translateZ(100px);
+	background: url('Images/1.jpg') no-repeat center;
+}
+
+@keyframes spin {
+	
+	from { transform: rotateY(0deg) rotateX(0deg); }
+	to { transform: rotateY(360deg) rotateX(360deg);} 	
+	
+}
+
+@keyframes spinextra {
+ 	to { transform: rotateY(-360deg) rotateX(-360deg);} 	
+}
+
+@keyframes spin1 {
+	to { transform: rotateY(360deg) rotateX(360deg); }	
+
+}
+
+@keyframes spin2 {
+	to { transform: rotateY(360deg) rotateX(270deg); }	
+
+}
+
+@keyframes spin3 {
+	to { transform: rotateY(270deg) rotateX(360deg); }	
+
+}
+
+@keyframes spin4 {
+	to { transform: rotateY(90deg) rotateX(360deg); }	
+
+}
+
+@keyframes spin5 {
+	to { transform: rotateY(360deg) rotateX(90deg); }	
+
+}
+
+@keyframes spin6 {
+	to { transform: rotateY(180deg) rotateX(360deg); }	
+
+}
+
+input[type="button"].css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background-color: green;
+	border-radius: 30px;
+	border: 1px solid #000000;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5), inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.4), 0px 1px 0px rgba(255,255,255,0.3);
+	width:50%;
+	
+}
+
+input[type="button"].css3button:focus {outline:0;}
+input[type="button"].css3button:hover {background-color: brown;}
+input[type="button"].css3button:active {box-shadow: 0px 5px 5px black;}
+
+.buttonwrapper { 
+	text-align:center; 
+	transform: translateY(400px);
+}
+
+h1 { 
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 34px;	
+}
+
+body{
+background-color: skyblue;
+}
+
+</style>
+</head>
+
+<body>
+
+	<!-- HTML hier --> 
+	
+	<h1>Gooi de dobbelsteen en raad het getal...</h1>
+	<div class="wrap">
+		<div class="cube">
+			<div class="front"></div>
+			<div class="back"></div>
+			<div class="top"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div class="cube2">
+			<div class="front"></div>
+			<div class="back"></div>
+			<div class="top"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div class="buttonwrapper">
+		<p>laaste gegooide getal: </p>
+		<p id="getal"></p>
+			<input type="button" value="gooi" class="css3button" onclick="StopDice(getRandomNr());">	
+			
+		</div>
+	</div>
+		
+	<!-- Dit stuk gebruik je voor de Javascript code --> 
+	<script>
+		
+		// deze functie geeft een random nummer terug tussen 1 en 6
+		function getRandomNr() {
+			var r = Math.floor((Math.random() * 6) + 1);	
+			console.log(r);
+			return r;
+			document.getElementById("getal").innerHTML = r;
+		}
+		
+		
+		// Deze functie animeert naar een bepaald nummer tussen 1 en 6 
+		// en stopt de dobbelanimatie
+		function StopDice(n) {
+			var s = document.styleSheets;
+			//console.log(s);
+			// always a simple start animation
+			s[0].cssRules[1].style.animation = "spinextra 0.5s linear forwards";
+			 // start after 500ms the animation to the correct number
+			setTimeout(function(){ 
+				s[0].cssRules[1].style.animation = "spin" + n + " 1s ease-out forwards";
+			}, 500);
+			
+			
+		}
+	</script>
+</body>
+</html>
